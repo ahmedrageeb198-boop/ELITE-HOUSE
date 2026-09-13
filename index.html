@@ -334,7 +334,7 @@
             font-size: 1.2rem;
         }
 
-        .contact-form form {
+        .contact-form div {
             display: flex;
             flex-direction: column;
             gap: 15px;
@@ -523,12 +523,13 @@
                 </div>
             </div>
             <div class="contact-form">
-                <form id="whatsappForm" onsubmit="sendToWhatsApp(event)">
+                <!-- تم تحويل الفورم إلى div عادي لمنع أي خطأ 405 نهائياً -->
+                <div id="whatsappForm">
                     <input type="text" id="clientName" placeholder="الاسم الكريم" required>
                     <input type="tel" id="clientPhone" placeholder="رقم الهاتف" required>
                     <textarea id="clientMessage" rows="4" placeholder="أخبرنا عن تفاصيل مشروعك..." required></textarea>
-                    <button type="submit">إرسال الطلب وحجز استشارة</button>
-                </form>
+                    <button type="button" onclick="sendToWhatsApp()">إرسال الطلب وحجز استشارة</button>
+                </div>
             </div>
         </div>
     </section>
@@ -538,14 +539,18 @@
         <p>جميع الحقوق محفوظة © 2026 - أحمد جمعة | مصمم داخلي ومشرف تشطيبات</p>
     </footer>
 
-    <!-- سكود البرمجة لربط الفورم بالواتساب -->
+    <!-- الكود البرمجي المحدث لإرسال البيانات أوتوماتيك للواتساب بدون أخطاء -->
     <script>
-        function sendToWhatsApp(event) {
-            event.preventDefault(); // منع إعادة تحميل الصفحة
+        function sendToWhatsApp() {
+            const name = document.getElementById('clientName').value.trim();
+            const phone = document.getElementById('clientPhone').value.trim();
+            const message = document.getElementById('clientMessage').value.trim();
             
-            const name = document.getElementById('clientName').value;
-            const phone = document.getElementById('clientPhone').value;
-            const message = document.getElementById('clientMessage').value;
+            // التأكد من ملء الحقول الأساسية
+            if(!name || !phone || !message) {
+                alert('برجاء ملء جميع الحقول المطلوبة (الاسم، الهاتف، والتفاصيل) قبل الإرسال.');
+                return;
+            }
             
             // رقم الواتساب الخاص بك
             const phoneNumber = "201000379117";

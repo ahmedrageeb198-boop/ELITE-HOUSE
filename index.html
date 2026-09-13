@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أحمد جمعة | للتصميم الداخلي وإدارة التشطيبات</title>
+    <!-- استيراد خط عربي فخم وعصري (Tajawal) -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- مكتبة أيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #c5a059; /* لون ذهبي فاخر مناسب للديكور */
+            --dark: #1a1a1a;
+            --light: #f9f9f9;
+            --gray: #666;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* الهيدر وشريط التنقل */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        /* تصميم اللوجو الفاجر */
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        .logo-emblem {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            border: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
+            overflow: hidden;
+        }
+        .logo-emblem::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(197, 160, 89, 0.15), transparent);
+            transform: rotate(45deg);
+        }
+        .logo-letters {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: -1px;
+            z-index: 1;
+        }
+        .logo-text-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .logo-main-name {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+        .logo-sub-title {
+            font-size: 0.7rem;
+            color: var(--primary);
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        .cta-btn {
+            background: var(--primary);
+            color: var(--dark);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .cta-btn:hover {
+            background: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* زرار الواتساب العائم */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: #25d366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+            z-index: 2000;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #20ba5a;
+        }
+
+        /* واجهة الترحيب (Hero Section) */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .hero-content h1 span {
+            color: var(--primary);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: #ddd;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* الأقسام العامة */
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* معرض الأعمال (Portfolio) */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 350px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .portfolio-overlay p {
+            color: #ccc;
+            font-size: 0.95rem;
+        }
+
+        /* خدماتنا */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #222;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            border-bottom: 3px solid var(--primary);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: #252525;
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+
+        /* قسم تواصل معنا */
+        .contact {
+            background: #151515;
+            border-top: 1px solid #333;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .info-item a {
+            color: #fff;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .info-item a:hover {
+            color: var(--primary);
+        }
+
+        .info-item i {
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            background: #222;
+            border: 1px solid #444;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .contact-form button {
+            background: var(--primary);
+            color: var(--dark);
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .contact-form button:hover {
+            background: #fff;
+        }
+
+        /* الفوتر */
+        <footer>
+            <p>جميع الحقوق محفوظة © 2026 - أحمد جمعة | مصمم داخلي ومشرف تشطيبات</p>
+        </footer>
+
+        /* التجاوب مع الجوال */
+        @media(max-width: 768px) {
+            nav { display: none; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .contact-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- زرار الواتساب العائم -->
+    <a href="https://wa.me/201000379117?text=مرحباً، أبدأ الاستفسار عن التصميم والتشطيبات" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- الهيدر -->
+    <header>
+        <a href="#home" class="brand-logo">
+            <div class="logo-emblem">
+                <span class="logo-letters">A.G</span>
+            </div>
+            <div class="logo-text-group">
+                <span class="logo-main-name">أحمد جمعة</span>
+                <span class="logo-sub-title">Interior Design</span>
+            </div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#portfolio">أعمالنا</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
+        </nav>
+        <a href="#contact" class="cta-btn">اطلب استشارة</a>
+    </header>
+
+    <!-- الواجهة الرئيسية -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>نحول مساحتك إلى <span>تحفة فنية</span></h1>
+            <p>خبراء التصميم الداخلي وإشراف وتنفيذ التشطيبات بأعلى معايير الجودة والذوق الرفيع. نصمم تفاصيل راحتك.</p>
+            <a href="#portfolio" class="cta-btn" style="padding: 15px 35px; font-size: 1.1rem;">تصفح أعمالنا</a>
+        </div>
+    </section>
+
+    <!-- الخدمات -->
+    <section id="services">
+        <div class="section-title">
+            <h2>خدماتنا الاحترافية</h2>
+            <p>نقدم حلولاً متكاملة تبدأ من الفكرة وحتى تسليم المفتاح</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fa-solid fa-pen-ruler"></i>
+                <h3>التصميم الداخلي (3D & 2D)</h3>
+                <p>تصميم دقيق للمساحات وتوزيع الإضاءة وخطط الفراغات بأحدث البرامج الهندسية وبدائل الخامات العصرية.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-hard-hat"></i>
+                <h3>إشراف وتنفيذ التشطيبات</h3>
+                <p>إشراف هندسي كامل على مراحل التنفيذ لضمان مطابقة الواقع للتصميم والالتزام بالجدول الزمني والجودة.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-couch"></i>
+                <h3>تنسيق الديكور والبدائل</h3>
+                <p>توزيع وتنسيق ديكورات الجدران، بدائل الخشب (WPC)، بدائل الرخام، واللوحات والمواد المتطورة.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- معرض الأعمال -->
+    <section id="portfolio" style="background: #161616;">
+        <div class="section-title">
+            <h2>معرض الأعمال</h2>
+            <p>نماذج من أحدث مشاريع التصميم والتشطيبات</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="تصميم مودرن">
+                <div class="portfolio-overlay">
+                    <h3>صالة استقبال مودرن</h3>
+                    <p>تصميم وإشراف تشطيبات متكاملة بإضاءات مخفية وبدائل خشبية.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="غرفة نوم فاخرة">
+                <div class="portfolio-overlay">
+                    <h3>غرفة نوم رئيسية</h3>
+                    <p>استغلال أمثل للمساحات مع لمسات ديكورية عصرية.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="تصميم فيلا">
+                <div class="portfolio-overlay">
+                    <h3>واجهات وديكورات داخلية</h3>
+                    <p>تنفيذ دقيق لجميع تفاصيل التشطيب الفاخر.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- تواصل معنا -->
+    <section id="contact" class="contact">
+        <div class="section-title">
+            <h2>ابدأ مشروعك معنا الآن</h2>
+            <p>دعنا نناقش فكرة بيتك الجديد أو مكتبك ونحولها إلى واقع ملموس</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>جاهز لتجديد مساحتك؟</h3>
+                <p>تواصل معنا اليوم واحصل على استشارة هندسية أولية لمشروعك. نحن هنا لمساعدتك في اختيار أفضل الخامات والتصاميم المبتكرة.</p>
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>الجيزة، مصر</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <a href="tel:01000379117">01000379117</a>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:info@ahmedgomma.com">info@ahmedgomma.com</a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <input type="text" placeholder="الاسم الكريم" required>
+                    <input type="tel" placeholder="رقم الهاتف (01000379117)" required>
+                    <textarea rows="5" placeholder="أخبرنا عن تفاصيل مشروعك أو المساحة المراد تشطيبها..." required></textarea>
+                    <button type="submit">إرسال الطلب وحجز استشارة</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        <p>جميع الحقوق محفوظة © 2026 - أحمد جمعة | مصمم داخلي ومشرف تشطيبات</p>
+    </footer>
+
+</body>
+</html>

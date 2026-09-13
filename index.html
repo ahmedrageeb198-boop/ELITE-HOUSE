@@ -228,18 +228,22 @@
             font-size: 0.9rem;
         }
 
+        /* معرض الأعمال الفخمة (الكروت الثلاثة الرئيسية) */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .portfolio-item {
             position: relative;
             overflow: hidden;
             border-radius: 12px;
-            height: 320px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            height: 350px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            cursor: pointer;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: var(--transition);
         }
 
         .portfolio-item img {
@@ -249,8 +253,13 @@
             transition: var(--transition);
         }
 
+        .portfolio-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
         .portfolio-item:hover img {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
 
         .portfolio-overlay {
@@ -259,7 +268,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.2));
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -268,15 +277,112 @@
 
         .portfolio-overlay h3 {
             color: var(--primary);
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 5px;
         }
 
         .portfolio-overlay p {
             color: #ccc;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
+        .shots-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--dark);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-top: 10px;
+            width: fit-content;
+        }
+
+        /* نافذة المعرض المنبثقة (Lightbox Modal) لعرض كذا شوت */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.92);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 800px;
+            width: 100%;
+            background: #222;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid var(--primary);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .modal-close:hover {
+            color: var(--primary);
+        }
+
+        .modal-title {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .modal-img-container {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .modal-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-nav-btns {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-btn {
+            background: var(--primary);
+            color: var(--dark);
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .nav-btn:hover {
+            background: #fff;
+        }
+
+        .img-counter {
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+
+        /* قسم تواصل معنا */
         .contact {
             background: #151515;
             border-top: 1px solid #333;
@@ -385,6 +491,7 @@
             .hero-content p { font-size: 1rem; }
             .contact-container { grid-template-columns: 1fr; gap: 30px; }
             section { padding: 50px 4%; }
+            .modal-img-container { height: 260px; }
         }
     </style>
 </head>
@@ -447,62 +554,62 @@
         </div>
     </section>
 
+    <!-- معرض الأعمال (3 نماذج رئيسية: غرفة نوم، ريسبشن، حمام) -->
     <section id="portfolio" style="background: #161616;">
         <div class="section-title">
-            <h2>معرض الأعمال</h2>
-            <p>نماذج من أحدث مشاريع التصميم والتشطيبات والديكورات العصرية</p>
+            <h2>معرض المشاريع التفصيلي</h2>
+            <p>اضغط على أي مشروع لتصفح كافة اللقطات والزوايا الخاصة به</p>
         </div>
         <div class="portfolio-grid">
-            <!-- مشروع 1 -->
-            <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="صالة استقبال مودرن">
-                <div class="portfolio-overlay">
-                    <h3>صالة استقبال مودرن</h3>
-                    <p>تصميم وإشراف تشطيبات متكاملة بإضاءات مخفية وبدائل خشبية.</p>
-                </div>
-            </div>
-            <!-- مشروع 2 -->
-            <div class="portfolio-item">
+            
+            <!-- نموذج غرفة النوم (عدة لقطات) -->
+            <div class="portfolio-item" onclick="openGallery('bedroom')">
                 <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="غرفة نوم رئيسية">
                 <div class="portfolio-overlay">
                     <h3>غرفة نوم رئيسية فاخرة</h3>
-                    <p>استغلال أمثل للمساحات مع لمسات ديكورية عصرية وحوائط مميزة.</p>
+                    <p>استغلال أمثل للمساحات وتصميم حوائط الإضاءة المخفية.</p>
+                    <span class="shots-badge"><i class="fa-solid fa-images"></i> اضغط لتصفح 3 لقطات</span>
                 </div>
             </div>
-            <!-- مشروع 3 -->
-            <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="ديكورات وتكسيات حوائط">
+
+            <!-- نموذج الريسبشن (عدة لقطات) -->
+            <div class="portfolio-item" onclick="openGallery('reception')">
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="ريسبشن مودرن">
                 <div class="portfolio-overlay">
-                    <h3>تكسيات جدران و WPC</h3>
-                    <p>تنفيذ دقيق لجميع تفاصيل التشطيب الفاخر بدائل الخشب والرخام.</p>
+                    <h3>صالة استقبال (ريسبشن) فخمة</h3>
+                    <p>تكسيات WPC عصرية وتوزيع إضاءات ليد بروفايل متطورة.</p>
+                    <span class="shots-badge"><i class="fa-solid fa-images"></i> اضغط لتصفح 3 لقطات</span>
                 </div>
             </div>
-            <!-- مشروع 4 -->
-            <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="تصميم معيشة واسع">
+
+            <!-- نموذج الحمام (عدة لقطات) -->
+            <div class="portfolio-item" onclick="openGallery('bathroom')">
+                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" alt="حمام مودرن">
                 <div class="portfolio-overlay">
-                    <h3>منطقة معيشة (Living Room)</h3>
-                    <p>توزيع هندسي للإضاءة الطبيعية والصناعية لراحة العين والفخامة.</p>
+                    <h3>تصميم وتشطيب حمام عصري</h3>
+                    <p>بدائل رخام فخمة، وحدات إضاءة، وتنسيق دقيق للصحي.</p>
+                    <span class="shots-badge"><i class="fa-solid fa-images"></i> اضغط لتصفح 3 لقطات</span>
                 </div>
             </div>
-            <!-- مشروع 5 -->
-            <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="ديكورات أسقف وجبس بورد">
-                <div class="portfolio-overlay">
-                    <h3>إضاءات ليد بروفايل وأسقف</h3>
-                    <p>تنفيذ أحدث تصميمات الجبس بورد وإضاءات الليد المخفية المودرن.</p>
-                </div>
-            </div>
-            <!-- مشروع 6 -->
-            <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="تشطيبات ريسبشن فخم">
-                <div class="portfolio-overlay">
-                    <h3>ريسبشن متكامل</h3>
-                    <p>تناغم متناسق في اختيار الألوان، الأرضيات، وتفاصيل الديكور.</p>
-                </div>
-            </div>
+
         </div>
     </section>
+
+    <!-- نافذة عرض اللقطات (Modal Gallery) -->
+    <div id="galleryModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeGallery()">&times;</span>
+            <h3 id="modalTitle" class="modal-title">عنوان المشروع</h3>
+            <div class="modal-img-container">
+                <img id="modalImage" src="" alt="شوت المشروع">
+            </div>
+            <div class="modal-nav-btns">
+                <button class="nav-btn" onclick="prevImage()">&#10094; الصورة السابقة</button>
+                <span id="imgCounter" class="img-counter">1 / 3</span>
+                <button class="nav-btn" onclick="nextImage()">الصورة التالية &#10095;</button>
+            </div>
+        </div>
+    </div>
 
     <section id="contact" class="contact">
         <div class="section-title">
@@ -541,7 +648,70 @@
         <p>جميع الحقوق محفوظة © 2026 - أحمد جمعة | مصمم داخلي ومشرف تشطيبات</p>
     </footer>
 
+    <!-- الكود البرمجي لإدارة المعرض المنبثق والواتساب -->
     <script>
+        // قواعد البيانات الخاصة بالصور (كل مشروع ليه 3 لقطات مختلفة)
+        const projectsData = {
+            bedroom: {
+                title: "غرفة نوم رئيسية فاخرة",
+                images: [
+                    "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1540518614846-7ede433c4ef0?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&q=80"
+                ]
+            },
+            reception: {
+                title: "صالة استقبال (ريسبشن) مودرن",
+                images: [
+                    "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80"
+                ]
+            },
+            bathroom: {
+                title: "تصميم وتشطيب حمام عصري",
+                images: [
+                    "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1000&q=80"
+                ]
+            }
+        };
+
+        let currentCategory = '';
+        let currentIndex = 0;
+
+        function openGallery(category) {
+            currentCategory = category;
+            currentIndex = 0;
+            updateModalContent();
+            document.getElementById('galleryModal').style.display = 'flex';
+        }
+
+        function closeGallery() {
+            document.getElementById('galleryModal').style.display = 'none';
+        }
+
+        function updateModalContent() {
+            const project = projectsData[currentCategory];
+            document.getElementById('modalTitle').innerText = project.title;
+            document.getElementById('modalImage').src = project.images[currentIndex];
+            document.getElementById('imgCounter').innerText = `${currentIndex + 1} / ${project.images.length}`;
+        }
+
+        function nextImage() {
+            const project = projectsData[currentCategory];
+            currentIndex = (currentIndex + 1) % project.images.length;
+            updateModalContent();
+        }
+
+        function prevImage() {
+            const project = projectsData[currentCategory];
+            currentIndex = (currentIndex - 1 + project.images.length) % project.images.length;
+            updateModalContent();
+        }
+
+        // إرسال الطلب للواتساب
         function sendToWhatsApp() {
             const name = document.getElementById('clientName').value.trim();
             const phone = document.getElementById('clientPhone').value.trim();

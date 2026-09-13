@@ -273,7 +273,6 @@
             flex-direction: column;
             justify-content: flex-end;
             padding: 25px;
-            opacity: 1; /* جعلها ظاهرة بوضوح على الموبايل بدون هوفر */
         }
 
         .portfolio-overlay h3 {
@@ -382,13 +381,13 @@
             border-top: 1px solid #222;
         }
 
-        /* ميديا كويري للشاشات الصغيرة (الموبايل) لتفادي أي انضغاط */
+        /* ميديا كويري للشاشات الصغيرة */
         @media(max-width: 768px) {
             header {
                 padding: 10px 4%;
             }
             nav { 
-                display: none; /* إخفاء الروابط التقليدية للطوارئ أو لتوفير مساحة وتسهيل التصفح */
+                display: none; 
             }
             .hero-content h1 { 
                 font-size: 2.1rem; 
@@ -524,10 +523,10 @@
                 </div>
             </div>
             <div class="contact-form">
-                <form action="#" method="POST">
-                    <input type="text" placeholder="الاسم الكريم" required>
-                    <input type="tel" placeholder="رقم الهاتف (01000379117)" required>
-                    <textarea rows="4" placeholder="أخبرنا عن تفاصيل مشروعك..." required></textarea>
+                <form id="whatsappForm" onsubmit="sendToWhatsApp(event)">
+                    <input type="text" id="clientName" placeholder="الاسم الكريم" required>
+                    <input type="tel" id="clientPhone" placeholder="رقم الهاتف" required>
+                    <textarea id="clientMessage" rows="4" placeholder="أخبرنا عن تفاصيل مشروعك..." required></textarea>
                     <button type="submit">إرسال الطلب وحجز استشارة</button>
                 </form>
             </div>
@@ -538,6 +537,27 @@
     <footer>
         <p>جميع الحقوق محفوظة © 2026 - أحمد جمعة | مصمم داخلي ومشرف تشطيبات</p>
     </footer>
+
+    <!-- سكود البرمجة لربط الفورم بالواتساب -->
+    <script>
+        function sendToWhatsApp(event) {
+            event.preventDefault(); // منع إعادة تحميل الصفحة
+            
+            const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('clientPhone').value;
+            const message = document.getElementById('clientMessage').value;
+            
+            // رقم الواتساب الخاص بك
+            const phoneNumber = "201000379117";
+            
+            // صياغة الرسالة بشكل احترافي
+            const text = `السلام عليكم بشمهندس أحمد، أود الاستفسار عن خدمة تصميم/تشطيب:%0a%0a*الاسم:* ${name}%0a*رقم الهاتـف:* ${phone}%0a*التفاصيل:* ${message}`;
+            
+            // فتح تطبيق الواتساب أو واتساب ويب بالرسالة الجاهزة
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${text}`;
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
 
 </body>
 </html>

@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>أحمد جمعة | للتصميم الداخلي وإدارة التشطيبات</title>
-    <!-- استيراد خط عربي فخم وعصري (Tajawal) -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <!-- مكتبة أيقونات FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #c5a059; /* لون ذهبي فاخر مناسب للديكور */
+            --primary: #c5a059;
             --dark: #1a1a1a;
             --light: #f9f9f9;
             --gray: #aaa;
@@ -32,7 +30,6 @@
             overflow-x: hidden;
         }
 
-        /* الهيدر وشريط التنقل المتجاوب */
         header {
             position: fixed;
             top: 0;
@@ -55,7 +52,6 @@
             text-decoration: none;
         }
         .logo-emblem {
-            position: relative;
             width: 40px;
             height: 40px;
             background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
@@ -124,7 +120,6 @@
             transform: translateY(-2px);
         }
 
-        /* زرار الواتساب العائم */
         .whatsapp-float {
             position: fixed;
             bottom: 25px;
@@ -147,7 +142,6 @@
             transform: scale(1.1);
         }
 
-        /* واجهة الترحيب (Hero Section) */
         .hero {
             min-height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
@@ -178,7 +172,6 @@
             margin-right: auto;
         }
 
-        /* الأقسام العامة */
         section {
             padding: 70px 5%;
         }
@@ -199,7 +192,6 @@
             font-size: 1rem;
         }
 
-        /* الخدمات */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -236,7 +228,6 @@
             font-size: 0.9rem;
         }
 
-        /* معرض الأعمال */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -286,7 +277,6 @@
             font-size: 0.9rem;
         }
 
-        /* قسم تواصل معنا */
         .contact {
             background: #151515;
             border-top: 1px solid #333;
@@ -334,30 +324,34 @@
             font-size: 1.2rem;
         }
 
-        .contact-form div {
+        .contact-box {
             display: flex;
             flex-direction: column;
             gap: 15px;
+            background: #222;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #333;
         }
 
-        .contact-form input, .contact-form textarea {
+        .contact-box input, .contact-box textarea {
             width: 100%;
             padding: 12px 15px;
-            background: #222;
+            background: #1a1a1a;
             border: 1px solid #444;
             border-radius: 8px;
             color: #fff;
             font-size: 0.95rem;
         }
 
-        .contact-form input:focus, .contact-form textarea:focus {
+        .contact-box input:focus, .contact-box textarea:focus {
             border-color: var(--primary);
             outline: none;
         }
 
-        .contact-form button {
-            background: var(--primary);
-            color: var(--dark);
+        .contact-box button {
+            background: #25d366;
+            color: #fff;
             padding: 14px;
             border: none;
             border-radius: 8px;
@@ -365,13 +359,16 @@
             font-size: 1rem;
             cursor: pointer;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
-        .contact-form button:hover {
-            background: #fff;
+        .contact-box button:hover {
+            background: #1ebc57;
         }
 
-        /* الفوتر */
         footer {
             background: #111;
             text-align: center;
@@ -381,38 +378,22 @@
             border-top: 1px solid #222;
         }
 
-        /* ميديا كويري للشاشات الصغيرة */
         @media(max-width: 768px) {
-            header {
-                padding: 10px 4%;
-            }
-            nav { 
-                display: none; 
-            }
-            .hero-content h1 { 
-                font-size: 2.1rem; 
-            }
-            .hero-content p {
-                font-size: 1rem;
-            }
-            .contact-container { 
-                grid-template-columns: 1fr; 
-                gap: 30px;
-            }
-            section {
-                padding: 50px 4%;
-            }
+            header { padding: 10px 4%; }
+            nav { display: none; }
+            .hero-content h1 { font-size: 2.1rem; }
+            .hero-content p { font-size: 1rem; }
+            .contact-container { grid-template-columns: 1fr; gap: 30px; }
+            section { padding: 50px 4%; }
         }
     </style>
 </head>
 <body>
 
-    <!-- زرار الواتساب العائم -->
     <a href="https://wa.me/201000379117?text=مرحباً، أبدأ الاستفسار عن التصميم والتشطيبات" class="whatsapp-float" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- الهيدر -->
     <header>
         <a href="#home" class="brand-logo">
             <div class="logo-emblem">
@@ -434,7 +415,6 @@
         <a href="#contact" class="cta-btn">استشارة</a>
     </header>
 
-    <!-- الواجهة الرئيسية -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>نحول مساحتك إلى <span>تحفة فنية</span></h1>
@@ -443,7 +423,6 @@
         </div>
     </section>
 
-    <!-- الخدمات -->
     <section id="services">
         <div class="section-title">
             <h2>خدماتنا الاحترافية</h2>
@@ -468,38 +447,63 @@
         </div>
     </section>
 
-    <!-- معرض الأعمال -->
     <section id="portfolio" style="background: #161616;">
         <div class="section-title">
             <h2>معرض الأعمال</h2>
-            <p>نماذج من أحدث مشاريع التصميم والتشطيبات</p>
+            <p>نماذج من أحدث مشاريع التصميم والتشطيبات والديكورات العصرية</p>
         </div>
         <div class="portfolio-grid">
+            <!-- مشروع 1 -->
             <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="تصميم مودرن">
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="صالة استقبال مودرن">
                 <div class="portfolio-overlay">
                     <h3>صالة استقبال مودرن</h3>
                     <p>تصميم وإشراف تشطيبات متكاملة بإضاءات مخفية وبدائل خشبية.</p>
                 </div>
             </div>
+            <!-- مشروع 2 -->
             <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="غرفة نوم فاخرة">
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="غرفة نوم رئيسية">
                 <div class="portfolio-overlay">
-                    <h3>غرفة نوم رئيسية</h3>
-                    <p>استغلال أمثل للمساحات مع لمسات ديكورية عصرية.</p>
+                    <h3>غرفة نوم رئيسية فاخرة</h3>
+                    <p>استغلال أمثل للمساحات مع لمسات ديكورية عصرية وحوائط مميزة.</p>
                 </div>
             </div>
+            <!-- مشروع 3 -->
             <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="تصميم فيلا">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="ديكورات وتكسيات حوائط">
                 <div class="portfolio-overlay">
-                    <h3>واجهات وديكورات داخلية</h3>
-                    <p>تنفيذ دقيق لجميع تفاصيل التشطيب الفاخر.</p>
+                    <h3>تكسيات جدران و WPC</h3>
+                    <p>تنفيذ دقيق لجميع تفاصيل التشطيب الفاخر بدائل الخشب والرخام.</p>
+                </div>
+            </div>
+            <!-- مشروع 4 -->
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="تصميم معيشة واسع">
+                <div class="portfolio-overlay">
+                    <h3>منطقة معيشة (Living Room)</h3>
+                    <p>توزيع هندسي للإضاءة الطبيعية والصناعية لراحة العين والفخامة.</p>
+                </div>
+            </div>
+            <!-- مشروع 5 -->
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="ديكورات أسقف وجبس بورد">
+                <div class="portfolio-overlay">
+                    <h3>إضاءات ليد بروفايل وأسقف</h3>
+                    <p>تنفيذ أحدث تصميمات الجبس بورد وإضاءات الليد المخفية المودرن.</p>
+                </div>
+            </div>
+            <!-- مشروع 6 -->
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="تشطيبات ريسبشن فخم">
+                <div class="portfolio-overlay">
+                    <h3>ريسبشن متكامل</h3>
+                    <p>تناغم متناسق في اختيار الألوان، الأرضيات، وتفاصيل الديكور.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- تواصل معنا -->
     <section id="contact" class="contact">
         <div class="section-title">
             <h2>ابدأ مشروعك معنا الآن</h2>
@@ -522,43 +526,35 @@
                     <a href="mailto:info@ahmedgomma.com">info@ahmedgomma.com</a>
                 </div>
             </div>
-            <div class="contact-form">
-                <!-- تم تحويل الفورم إلى div عادي لمنع أي خطأ 405 نهائياً -->
-                <div id="whatsappForm">
-                    <input type="text" id="clientName" placeholder="الاسم الكريم" required>
-                    <input type="tel" id="clientPhone" placeholder="رقم الهاتف" required>
-                    <textarea id="clientMessage" rows="4" placeholder="أخبرنا عن تفاصيل مشروعك..." required></textarea>
-                    <button type="button" onclick="sendToWhatsApp()">إرسال الطلب وحجز استشارة</button>
-                </div>
+            <div class="contact-box">
+                <input type="text" id="clientName" placeholder="الاسم الكريم">
+                <input type="tel" id="clientPhone" placeholder="رقم الهاتف">
+                <textarea id="clientMessage" rows="4" placeholder="أخبرنا عن تفاصيل مشروعك..."></textarea>
+                <button type="button" onclick="sendToWhatsApp()">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> إرسال الطلب عبر الواتساب
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- الفوتر -->
     <footer>
         <p>جميع الحقوق محفوظة © 2026 - أحمد جمعة | مصمم داخلي ومشرف تشطيبات</p>
     </footer>
 
-    <!-- الكود البرمجي المحدث لإرسال البيانات أوتوماتيك للواتساب بدون أخطاء -->
     <script>
         function sendToWhatsApp() {
             const name = document.getElementById('clientName').value.trim();
             const phone = document.getElementById('clientPhone').value.trim();
             const message = document.getElementById('clientMessage').value.trim();
             
-            // التأكد من ملء الحقول الأساسية
             if(!name || !phone || !message) {
-                alert('برجاء ملء جميع الحقول المطلوبة (الاسم، الهاتف، والتفاصيل) قبل الإرسال.');
+                alert('برجاء كتابة الاسم ورقم الهاتف وتفاصيل المشروع قبل الإرسال.');
                 return;
             }
             
-            // رقم الواتساب الخاص بك
             const phoneNumber = "201000379117";
-            
-            // صياغة الرسالة بشكل احترافي
             const text = `السلام عليكم بشمهندس أحمد، أود الاستفسار عن خدمة تصميم/تشطيب:%0a%0a*الاسم:* ${name}%0a*رقم الهاتـف:* ${phone}%0a*التفاصيل:* ${message}`;
             
-            // فتح تطبيق الواتساب أو واتساب ويب بالرسالة الجاهزة
             const whatsappURL = `https://wa.me/${phoneNumber}?text=${text}`;
             window.open(whatsappURL, '_blank');
         }
